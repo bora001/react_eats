@@ -1,5 +1,11 @@
-.menu_item {
+.menu_box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgba(124, 116, 116, 0.411);
+}
+.menu_item {
 }
 
 .menu_item .menu_name {
