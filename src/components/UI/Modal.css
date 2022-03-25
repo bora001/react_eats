@@ -1,0 +1,28 @@
+.modal_cnt {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(8, 8, 8, 0.842);
+}
+
+.modal_box {
+  position: relative;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.modal_box::before {
+  position: absolute;
+  background-color: rgb(182, 7, 7);
+  height: 40px;
+  width: 100%;
+  content: "";
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
