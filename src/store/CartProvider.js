@@ -9,10 +9,15 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     console.log("reducer-add!!");
+    const sameItem = state.items.filter((item) => item.id === action.item.id);
     const updatedItem = state.items.concat(action.item);
     const updatedAmount = state.totalAmount + action.item.price;
-    console.log(updatedItem, updatedAmount);
-    return { items: updatedItem, totalAmount: updatedAmount };
+    if (sameItem.length > 0) {
+      sameItem[0].qty = sameItem[0].qty + 1;
+      return { items: state.items, totalAmount: updatedAmount };
+    } else {
+      return { items: updatedItem, totalAmount: updatedAmount };
+    }
   }
   //   if (action.type === "REMOVE") {
   //   }

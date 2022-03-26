@@ -4,7 +4,6 @@ import "./Header.css";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
-  console.log(cartCtx);
   return (
     <div>
       <header>
