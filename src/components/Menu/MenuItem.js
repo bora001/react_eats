@@ -9,7 +9,7 @@ const MenuItem = (props) => {
         <p className="menu_desc">{props.data.desc}</p>
         <p className="menu_price">$ {props.data.price}</p>
       </div>
-      <AddBtn />
+      <AddBtn data={props.data} />
     </div>
   );
 };
