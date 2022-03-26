@@ -2,11 +2,9 @@ import React, { useContext } from "react";
 import { CartContext } from "../../store/CartProvider";
 import Modal from "../UI/Modal";
 import "./Cart.css";
+import CartBtn from "./CartBtn";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  console.log(cartCtx);
-
-  const orderBtn = () => {};
 
   return (
     <Modal>
@@ -18,11 +16,7 @@ const Cart = (props) => {
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
               </div>
-              <div className="cart_btn">
-                <button>-</button>
-                <p>{item.qty}</p>
-                <button>+</button>
-              </div>
+              <CartBtn data={item} ctx={cartCtx} />
             </div>
           ))}
         </div>
@@ -35,7 +29,7 @@ const Cart = (props) => {
           <button className="btn_close" onClick={props.modal}>
             Close
           </button>
-          <button onClick={orderBtn}>Order</button>
+          <button>Order</button>
         </div>
       </div>
     </Modal>

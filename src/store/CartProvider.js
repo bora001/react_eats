@@ -7,21 +7,38 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
-  if (action.type === "ADD") {
-    console.log("reducer-add!!");
-    const sameItem = state.items.filter((item) => item.id === action.item.id);
-    const updatedItem = state.items.concat(action.item);
-    const updatedAmount = state.totalAmount + action.item.price;
-    if (sameItem.length > 0) {
-      sameItem[0].qty = sameItem[0].qty + 1;
-      return { items: state.items, totalAmount: updatedAmount };
-    } else {
-      return { items: updatedItem, totalAmount: updatedAmount };
-    }
+  const sameItem = state.items.filter((item) => item.id === action.item.id);
+
+  switch (action.type) {
+    case "ADD":
+      if (sameItem.length > 0) {
+        sameItem[0].qty = sameItem[0].qty + 1;
+        return {
+          items: state.items,
+          totalAmount: state.totalAmount + action.item.price,
+        };
+      } else {
+        return {
+          items: state.items.concat(action.item),
+          totalAmount: state.totalAmount + action.item.price,
+        };
+      }
+    case "REMOVE":
+      if (action.item.qty > 1) {
+        sameItem[0].qty = sameItem[0].qty - 1;
+        return {
+          items: state.items,
+          totalAmount: state.totalAmount - action.item.price,
+        };
+      } else {
+        return {
+          items: state.items.filter((item) => item.id !== action.item.id),
+          totalAmount: state.totalAmount - action.item.price,
+        };
+      }
+    default:
+      return defaultCartState;
   }
-  //   if (action.type === "REMOVE") {
-  //   }
-  return defaultCartState;
 };
 
 const CartStore = (props) => {
@@ -33,8 +50,8 @@ const CartStore = (props) => {
     addItem: (item) => {
       dispatchCart({ type: "ADD", item });
     },
-    removeItem: (id) => {
-      console.log("cartContext-removeItem", id);
+    removeItem: (item) => {
+      dispatchCart({ type: "REMOVE", item });
     },
   };
 

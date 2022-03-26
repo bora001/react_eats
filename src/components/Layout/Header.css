@@ -23,6 +23,20 @@ header .cart_btn {
   justify-content: space-around;
   align-items: center;
 }
+header .cart_btn.active_btn {
+  animation: bump 0.8s;
+}
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 header .cart_btn span {
   display: block;
