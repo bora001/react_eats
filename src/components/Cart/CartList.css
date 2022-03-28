@@ -1,0 +1,18 @@
+.cart_box .cart_list {
+  width: 300px;
+}
+.cart_box .cart_list .cart_item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(182, 7, 7, 0.267);
+}
+
+.cart_box .cart_list .cart_item_desc {
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+}
+.cart_box .cart_list .cart_item_desc h3 {
+  font-size: 22px;
+}
