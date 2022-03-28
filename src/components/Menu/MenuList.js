@@ -7,7 +7,7 @@ const MenuList = () => {
   const [menuData, setMenuData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(firebaseUrl);
+      const res = await fetch(firebaseUrl + `Meals.json`);
       const data = await res.json();
       setMenuData(Object.values(data));
     };

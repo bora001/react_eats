@@ -20,6 +20,12 @@
   margin: 10px 0;
   padding: 10px;
 }
+.cart_form form input.input_err {
+  position: relative;
+  border: 1px solid rgb(182, 7, 7);
+  background-color: #b6070727;
+}
+
 .cart_form .order_item {
   display: flex;
   justify-content: space-between;

@@ -16,3 +16,20 @@
 .cart_box .cart_list .cart_item_desc h3 {
   font-size: 22px;
 }
+.cart_box .cart_list .cart_btn {
+  display: flex;
+  align-items: center;
+}
+
+.cart_box .cart_list .cart_btn button {
+  background-color: #fff;
+  color: rgb(182, 7, 7);
+  border: 1px solid rgb(182, 7, 7);
+  padding: 10px;
+  margin: 5px;
+  height: 20px;
+  line-height: 0px;
+  font-size: 22px;
+  border: none;
+  align-items: center;
+}

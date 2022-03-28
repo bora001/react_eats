@@ -1,5 +1,4 @@
 import React from "react";
-import CartBtn from "./CartBtn";
 import "./CartList.css";
 
 const CartList = (props) => {
@@ -13,7 +12,11 @@ const CartList = (props) => {
               <h3>{item.name}</h3>
               <p>${item.price}</p>
             </div>
-            <CartBtn data={item} ctx={ctx} />
+            <div className="cart_btn">
+              <button onClick={() => ctx.removeItem(item)}>-</button>
+              <p>{item.qty}</p>
+              <button onClick={() => ctx.addItem(item)}>+</button>
+            </div>
           </div>
         ))}
       </div>
