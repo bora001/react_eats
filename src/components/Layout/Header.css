@@ -60,3 +60,31 @@ header .right_box {
 header .right_box .btn_myorder {
   font-size: 16px;
 }
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 1.3021vw 3.9063vw;
+  }
+
+  header h1 {
+    font-size: 5vw;
+  }
+
+  header .cart_btn {
+    font-size: 3vw;
+    width: 20vw;
+    height: 8vw;
+    border-radius: 1.9531vw;
+  }
+
+  header .cart_btn span {
+    width: 5vw;
+    height: 5vw;
+    line-height: 5vw;
+    border-radius: 1.3021vw;
+  }
+
+  header .right_box .btn_myorder {
+    font-size: 3vw;
+  }
+}

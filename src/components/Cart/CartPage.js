@@ -4,7 +4,6 @@ import Modal from "../UI/Modal";
 import PreOrder from "./PreOrder";
 import ConfirmOrder from "./ConfirmOrder";
 import CompleteOrder from "./CompleteOrder";
-import "./CartPage.css";
 
 const CartPage = (props) => {
   const [cartStatus, setCartStatus] = useState("PreOrder");
@@ -15,7 +14,6 @@ const CartPage = (props) => {
     modal: props.modal,
     setStatus: setCartStatus,
   };
-  console.log("orderData", orderData);
 
   return (
     <Modal>

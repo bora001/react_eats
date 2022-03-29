@@ -18,9 +18,21 @@ button {
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .main_box {
   padding: 2% 0;
+}
+
+@media screen and (max-width: 768px) {
+  button {
+    font-size: 2.0833vw;
+    padding: 1.3021vw 2.6042vw;
+    border-radius: 1.3021vw;
+  }
+  .main_box {
+    padding: 20% 0;
+  }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import "./OrderDraft.css";
 const OrderDraft = (props) => {
-  console.log(props);
   return (
     <div>
       <div className="desc_box">

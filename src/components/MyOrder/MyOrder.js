@@ -16,8 +16,8 @@ const MyOrder = () => {
     });
     const data = await res.json();
     orderNumber.current.value = "";
-    setOrderDesc(data[key]);
-    setNoResult(!data[key]);
+    setOrderDesc(data[`-` + key]);
+    setNoResult(!data[`-` + key]);
   };
   return (
     <div className="myorder">
@@ -38,8 +38,7 @@ const MyOrder = () => {
         {noResult && (
           <div className="no_result">
             <h4> No results Found</h4>
-            <p> Some order number starts with '-'</p>
-            <span>Test order number: -MzJNnAggcG23bCjfw3z</span>
+            <span>Test order number : MzJNnAggcG23bCjfw3z</span>
           </div>
         )}
       </div>

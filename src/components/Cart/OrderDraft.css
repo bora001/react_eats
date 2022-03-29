@@ -28,3 +28,31 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 768px) {
+  .order_item h4,
+  .order_info h4,
+  .total_box h4 {
+    font-size: 2.3438vw;
+  }
+
+  .order_info p,
+  .total_box p {
+    font-size: 2.2135vw;
+  }
+
+  .order_item {
+    width: 39.0625vw;
+    padding-left: 6.5104vw;
+  }
+  .order_item .item_desc {
+    border-bottom: 0.1302vw solid rgb(247, 215, 215);
+  }
+  .order_item p {
+    font-size: 2.0833vw;
+  }
+
+  .total_box {
+    align-items: center;
+    margin-bottom: 2.6042vw;
+  }
+}

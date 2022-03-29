@@ -23,20 +23,52 @@
   padding: 8px;
   text-align: center;
   border: none;
+  font-size: 16px;
 }
 
 .myorder form .input_box button {
   border-radius: 0;
 }
 
-.no_result {
+.myorder .no_result {
   text-align: center;
 }
 
-.no_result h4 {
+.myorder .no_result h4 {
   font-size: 18px;
 }
-.no_result p {
+.myorder .no_result p {
   font-size: 16px;
   line-height: 0;
+}
+.myorder .no_result span {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .myorder .myorder_inner {
+    padding: 5.2083vw;
+    border-radius: 2.6042vw;
+  }
+  .myorder form {
+    padding: 1.3021vw 0 3.9063vw;
+  }
+  .myorder form h2 {
+    font-size: 3.3854vw;
+  }
+  .myorder form .input_box input {
+    padding: 1.0417vw;
+    font-size: 2.0833vw;
+    border-radius: 0;
+  }
+
+  .myorder .no_result h4 {
+    font-size: 2.3438vw;
+  }
+  .myorder .no_result p {
+    font-size: 2.0833vw;
+  }
+  .myorder .no_result span {
+    font-size: 1.9531vw;
+  }
 }

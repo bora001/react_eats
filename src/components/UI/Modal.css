@@ -26,3 +26,13 @@
   top: 0;
   left: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .modal_box {
+    padding: 6.5104vw;
+    border-radius: 3.2552vw;
+  }
+  .modal_box::before {
+    height: 5.2083vw;
+  }
+}

@@ -3,7 +3,6 @@ import OrderDraft from "./OrderDraft";
 import "./CompleteOrder.css";
 
 const CompleteOrder = (props) => {
-  console.log(props);
   return (
     <div>
       <div className="txt_box">

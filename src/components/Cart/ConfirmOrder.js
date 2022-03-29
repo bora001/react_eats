@@ -46,7 +46,7 @@ const ConfirmOrder = (props) => {
 
     let json = await res.json();
     props.setStatus("CompleteOrder");
-    body.id = json.name;
+    body.id = json.name.split("-")[1];
     props.orderDetail(body);
   };
 
