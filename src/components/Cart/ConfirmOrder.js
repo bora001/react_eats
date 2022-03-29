@@ -49,6 +49,7 @@ const ConfirmOrder = (props) => {
 
     console.log(body);
     props.setStatus("CompleteOrder");
+    props.orderDetail(body);
     // console.log(await res.json());
   };
 

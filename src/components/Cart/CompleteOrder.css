@@ -1,0 +1,51 @@
+.txt_box {
+  text-align: center;
+}
+
+.txt_box h3 {
+  font-size: 28px;
+}
+
+.txt_box p {
+  font-size: 18px;
+}
+.txt_box span {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 40px;
+  background-color: rgb(189, 9, 9);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px;
+}
+
+.order_item h4,
+.order_info h4,
+.total_box h4 {
+  font-size: 18px;
+}
+
+.order_info p,
+.total_box p {
+  font-size: 17px;
+}
+.desc_box {
+  display: flex;
+}
+.order_item {
+  width: 300px;
+  padding-left: 50px;
+}
+.order_item .item_desc {
+  border-bottom: 1px solid rgb(247, 215, 215);
+}
+.order_item p {
+  font-size: 16px;
+}
+
+.total_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
