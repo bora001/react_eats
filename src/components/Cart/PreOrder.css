@@ -1,3 +1,33 @@
+.cart_box {
+  display: flex;
+  width: auto;
+  /* flex-direction: column; */
+  align-items: center;
+}
+.cart_box .txt_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.cart_box .txt_box h3 {
+  font-size: 23px;
+}
+
+.txt_box p {
+  font-size: 18px;
+}
+.btn_box {
+  text-align: center;
+}
+.btn_box .btn_close {
+  background-color: #fff;
+  color: rgb(182, 7, 7);
+  border: 1px solid rgb(182, 7, 7);
+  margin-right: 10px;
+}
+
 .cart_box .cart_list {
   width: 300px;
 }
