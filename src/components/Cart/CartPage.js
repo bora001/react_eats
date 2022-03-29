@@ -9,26 +9,17 @@ import "./CartPage.css";
 const CartPage = (props) => {
   const [cartStatus, setCartStatus] = useState("PreOrder");
   const cartCtx = useContext(CartContext);
+  const passData = {
+    ctx: cartCtx,
+    modal: props.modal,
+    setStatus: setCartStatus,
+  };
 
   return (
     <Modal>
-      {cartStatus === "PreOrder" && (
-        <PreOrder ctx={cartCtx} modal={props.modal} setStatus={setCartStatus} />
-      )}
-      {cartStatus === "ConfirmOrder" && (
-        <ConfirmOrder
-          ctx={cartCtx}
-          modal={props.modal}
-          setStatus={setCartStatus}
-        />
-      )}
-      {cartStatus === "CompleteOrder" && (
-        <CompleteOrder
-          ctx={cartCtx}
-          modal={props.modal}
-          setStatus={setCartStatus}
-        />
-      )}
+      {cartStatus === "PreOrder" && <PreOrder {...passData} />}
+      {cartStatus === "ConfirmOrder" && <ConfirmOrder {...passData} />}
+      {cartStatus === "CompleteOrder" && <CompleteOrder {...passData} />}
     </Modal>
   );
 };

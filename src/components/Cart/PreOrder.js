@@ -1,7 +1,7 @@
 import React from "react";
 import "./PreOrder.css";
 const PreOrder = (props) => {
-  console.log(props.ctx);
+  console.log(props, "preore!");
   const orderProcess = () => {
     props.setStatus("ConfirmOrder");
   };
