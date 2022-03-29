@@ -1,3 +1,8 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header {
   display: flex;
   background-color: brown;
@@ -12,17 +17,18 @@ header h1 {
 }
 
 header .cart_btn {
-  border: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-size: 16px;
   width: 120px;
   height: 50px;
   color: #fff;
+  border: none;
   border-radius: 15px;
   background-color: rgb(107, 2, 2);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
+
 header .cart_btn.active_btn {
   animation: bump 0.8s;
 }
@@ -46,4 +52,11 @@ header .cart_btn span {
   height: 30px;
   line-height: 30px;
   border-radius: 10px;
+}
+
+header .right_box {
+  display: flex;
+}
+header .right_box .btn_myorder {
+  font-size: 16px;
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import "./PreOrder.css";
 const PreOrder = (props) => {
-  console.log(props, "preore!");
   const orderProcess = () => {
     props.setStatus("ConfirmOrder");
   };
@@ -24,10 +23,14 @@ const PreOrder = (props) => {
           ))}
         </div>
       </div>
-      <div className="total_box">
-        <h3>Total Amount</h3>
-        <p>$ {props.ctx.totalAmount}</p>
-      </div>
+      {props.ctx.items.length > 0 ? (
+        <div className="total_box">
+          <h3>Total Amount</h3> <p>$ {props.ctx.totalAmount}</p>
+        </div>
+      ) : (
+        <p className="cart_empty">Your cart is Empty</p>
+      )}
+
       <div className="btn_box">
         <button className="btn_close" onClick={props.modal}>
           Close

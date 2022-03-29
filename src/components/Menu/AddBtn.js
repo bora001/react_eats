@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../store/CartProvider";
 
-import "./AddBtn.css";
 const AddBtn = (props) => {
   const cartCtx = useContext(CartContext);
   return (
-    <div>
+    <div className="add_btn">
       <button onClick={() => cartCtx.addItem(props.data)}>+ ADD</button>
     </div>
   );

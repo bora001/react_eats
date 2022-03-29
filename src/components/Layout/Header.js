@@ -5,7 +5,6 @@ import "./Header.css";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
-
   const [styleClass, setStyleClass] = useState("cart_btn");
   useEffect(() => {
     setStyleClass("cart_btn");
@@ -20,10 +19,17 @@ const Header = (props) => {
   return (
     <div>
       <header>
-        <h1>React Eats</h1>
-        <button className={styleClass} value="true" onClick={props.modal}>
-          Cart <span>{cartCtx.items.length}</span>
-        </button>
+        <h1>
+          <a href="/">React Eats</a>
+        </h1>
+        <div className="right_box">
+          <button className="btn_myorder" value="true" onClick={props.myorder}>
+            My Order
+          </button>
+          <button className={styleClass} value="true" onClick={props.modal}>
+            Cart <span>{cartCtx.items.length}</span>
+          </button>
+        </div>
       </header>
     </div>
   );

@@ -15,6 +15,7 @@ const CartPage = (props) => {
     modal: props.modal,
     setStatus: setCartStatus,
   };
+  console.log("orderData", orderData);
 
   return (
     <Modal>

@@ -63,3 +63,6 @@
   border: none;
   align-items: center;
 }
+.cart_empty {
+  margin: 20px 0 40px;
+}

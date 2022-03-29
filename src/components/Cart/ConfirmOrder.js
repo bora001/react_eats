@@ -1,16 +1,14 @@
 import React from "react";
 import "./ConfirmOrder.css";
-// import { firebaseUrl } from "../../dev";
+import { firebaseUrl } from "../../dev";
 
 const ConfirmOrder = (props) => {
-  console.log(props, "orderconfirm");
   const formChange = (e) => {
     e.target.classList.remove("input_err");
   };
 
   const inputValidCheck = (e) => {
     e.preventDefault();
-    console.log("submit?");
     const inputBox = document.querySelectorAll(".input_box input");
     // const inputErr = document.querySelectorAll(".input_box input.input_err");
     const inputArr = Array.from(inputBox);
@@ -36,21 +34,20 @@ const ConfirmOrder = (props) => {
 
     let body = {
       ...data,
-      id: `${new Date().getTime()}${
-        (Math.random() * 10).toString(16).split(".")[1]
-      }`,
       item: props.ctx.items,
+      totalAmount: props.ctx.totalAmount,
       time: `${date.toLocaleDateString()} ${date.toTimeString().split(" ")[0]}`,
     };
-    // const res = await fetch(firebaseUrl + `Orders.json`, {
-    //   method: "POST",
-    //   body: JSON.stringify(body),
-    // });
 
-    console.log(body);
+    const res = await fetch(firebaseUrl + `Orders.json`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+
+    let json = await res.json();
     props.setStatus("CompleteOrder");
+    body.id = json.name;
     props.orderDetail(body);
-    // console.log(await res.json());
   };
 
   return (

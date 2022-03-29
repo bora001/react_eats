@@ -1,0 +1,42 @@
+.myorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.myorder .myorder_inner {
+  padding: 40px;
+  border-radius: 20px;
+  background-color: rgb(204, 179, 179);
+}
+.myorder form {
+  padding: 10px 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.myorder form h2 {
+  font-size: 26px;
+}
+.myorder form .input_box input {
+  padding: 8px;
+  text-align: center;
+  border: none;
+}
+
+.myorder form .input_box button {
+  border-radius: 0;
+}
+
+.no_result {
+  text-align: center;
+}
+
+.no_result h4 {
+  font-size: 18px;
+}
+.no_result p {
+  font-size: 16px;
+  line-height: 0;
+}
