@@ -2,7 +2,7 @@ import React from "react";
 import "./OrderDraft.css";
 const OrderDraft = (props) => {
   return (
-    <div>
+    <div className="order_draft">
       <div className="desc_box">
         <div className="order_info">
           <h4>Order Info</h4>

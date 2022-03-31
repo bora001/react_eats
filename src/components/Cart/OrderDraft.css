@@ -1,57 +1,57 @@
-.order_item h4,
-.order_info h4,
-.total_box h4 {
+.order_draft .order_item h4,
+.order_draft .order_info h4,
+.order_draft .total_box h4 {
   font-size: 18px;
 }
 
-.order_info p,
-.total_box p {
+.order_draft .order_info p,
+.order_draft .total_box p {
   font-size: 17px;
 }
-.desc_box {
+.order_draft .desc_box {
   display: flex;
 }
-.order_item {
+.order_draft .order_item {
   width: 300px;
   padding-left: 50px;
 }
-.order_item .item_desc {
+.order_draft .order_item .item_desc {
   border-bottom: 1px solid rgb(247, 215, 215);
 }
-.order_item p {
+.order_draft .order_item p {
   font-size: 16px;
 }
 
-.total_box {
+.order_draft .total_box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 768px) {
-  .order_item h4,
-  .order_info h4,
-  .total_box h4 {
+  .order_draft .order_item h4,
+  .order_draft .order_info h4,
+  .order_draft .total_box h4 {
     font-size: 2.3438vw;
   }
 
-  .order_info p,
-  .total_box p {
+  .order_draft .order_info p,
+  .order_draft .total_box p {
     font-size: 2.2135vw;
   }
 
-  .order_item {
+  .order_draft .order_item {
     width: 39.0625vw;
     padding-left: 6.5104vw;
   }
-  .order_item .item_desc {
+  .order_draft .order_item .item_desc {
     border-bottom: 0.1302vw solid rgb(247, 215, 215);
   }
-  .order_item p {
+  .order_draft .order_item p {
     font-size: 2.0833vw;
   }
 
-  .total_box {
+  .order_draft .total_box {
     align-items: center;
     margin-bottom: 2.6042vw;
   }
