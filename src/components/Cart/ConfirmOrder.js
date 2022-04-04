@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./ConfirmOrder.css";
 import { firebaseUrl } from "../../dev";
-import { CartContext } from "../../store/CartProvider";
+import { useDispatch } from "react-redux";
+import { cartAction } from "../../store/cart-slice";
 const ConfirmOrder = (props) => {
-  const cartCtx = useContext(CartContext);
+  const dispatch = useDispatch();
   const formChange = (e) => {
     e.target.classList.remove("input_err");
   };
@@ -11,7 +12,6 @@ const ConfirmOrder = (props) => {
   const inputValidCheck = (e) => {
     e.preventDefault();
     const inputBox = document.querySelectorAll(".input_box input");
-    // const inputErr = document.querySelectorAll(".input_box input.input_err");
     const inputArr = Array.from(inputBox);
     let data = {};
 
@@ -49,7 +49,7 @@ const ConfirmOrder = (props) => {
     props.setStatus("CompleteOrder");
     body.id = json.name;
     props.orderDetail(body);
-    cartCtx.clearItem();
+    dispatch(cartAction.clearItem());
   };
 
   return (

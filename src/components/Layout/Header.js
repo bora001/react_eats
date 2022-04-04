@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import {} from "react/cjs/react.production.min";
-import { CartContext } from "../../store/CartProvider";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
-  const cartCtx = useContext(CartContext);
+  const cartInfo = useSelector((state) => state.cart);
   const [styleClass, setStyleClass] = useState("cart_btn");
   useEffect(() => {
     setStyleClass("cart_btn");
@@ -14,7 +13,7 @@ const Header = (props) => {
         setStyleClass("cart_btn active_btn");
       }, 50);
     };
-  }, [cartCtx.totalAmount]);
+  }, [cartInfo.totalAmount]);
 
   return (
     <div>
@@ -27,7 +26,7 @@ const Header = (props) => {
             My Order
           </button>
           <button className={styleClass} value="true" onClick={props.modal}>
-            Cart <span>{cartCtx.items.length}</span>
+            Cart <span>{cartInfo.items.length}</span>
           </button>
         </div>
       </header>

@@ -1,9 +1,13 @@
 import React from "react";
 import "./PreOrder.css";
+import { useDispatch } from "react-redux";
+import { cartAction } from "../../store/cart-slice";
 const PreOrder = (props) => {
+  const dispatch = useDispatch();
   const orderProcess = () => {
     props.setStatus("ConfirmOrder");
   };
+
   return (
     <div>
       <div className="cart_box">
@@ -15,9 +19,13 @@ const PreOrder = (props) => {
                 <p>${item.price}</p>
               </div>
               <div className="cart_btn">
-                <button onClick={() => props.ctx.removeItem(item)}>-</button>
+                <button onClick={() => dispatch(cartAction.removeItem(item))}>
+                  -
+                </button>
                 <p>{item.qty}</p>
-                <button onClick={() => props.ctx.addItem(item)}>+</button>
+                <button onClick={() => dispatch(cartAction.addItem(item))}>
+                  +
+                </button>
               </div>
             </div>
           ))}

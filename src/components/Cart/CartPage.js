@@ -1,16 +1,16 @@
-import React, { useState, useContext } from "react";
-import { CartContext } from "../../store/CartProvider";
+import React, { useState } from "react";
 import Modal from "../UI/Modal";
 import PreOrder from "./PreOrder";
 import ConfirmOrder from "./ConfirmOrder";
 import CompleteOrder from "./CompleteOrder";
+import { useSelector } from "react-redux";
 
 const CartPage = (props) => {
   const [cartStatus, setCartStatus] = useState("PreOrder");
   const [orderData, setOrderData] = useState({});
-  const cartCtx = useContext(CartContext);
+  const cartInfo = useSelector((state) => state.cart);
   const passData = {
-    ctx: cartCtx,
+    ctx: cartInfo,
     modal: props.modal,
     setStatus: setCartStatus,
   };

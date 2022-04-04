@@ -3,7 +3,6 @@ import CartPage from "./components/Cart/CartPage";
 import Header from "./components/Layout/Header";
 import MenuList from "./components/Menu/MenuList";
 import MyOrder from "./components/MyOrder/MyOrder";
-import CartStore from "./store/CartProvider";
 
 const App = () => {
   const [modalStatus, setModalStatus] = useState(false);
@@ -17,14 +16,12 @@ const App = () => {
   };
   return (
     <>
-      <CartStore>
-        {modalStatus && <CartPage modal={modalBtn} />}
-        <Header modal={modalBtn} myorder={myOrderBtn} />
-        <div className="main_box">
-          {!checkOrder && <MenuList />}
-          {checkOrder && <MyOrder />}
-        </div>
-      </CartStore>
+      {modalStatus && <CartPage modal={modalBtn} />}
+      <Header modal={modalBtn} myorder={myOrderBtn} />
+      <div className="main_box">
+        {!checkOrder && <MenuList />}
+        {checkOrder && <MyOrder />}
+      </div>
     </>
   );
 };
