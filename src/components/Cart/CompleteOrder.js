@@ -8,7 +8,7 @@ const CompleteOrder = (props) => {
       <div className="txt_box">
         <h3>Thank you for your order!</h3>
         <p>your order number is</p>
-        <span> {props.orderInfo.id} </span>
+        <span>{props.orderInfo.id} </span>
       </div>
       <OrderDraft orderInfo={props.orderInfo} />
       <div className="btn_box">

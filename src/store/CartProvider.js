@@ -7,7 +7,8 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
-  const sameItem = state.items.filter((item) => item.id === action.item.id);
+  const sameItem =
+    action.item && state.items.filter((item) => item.id === action.item.id);
 
   switch (action.type) {
     case "ADD":

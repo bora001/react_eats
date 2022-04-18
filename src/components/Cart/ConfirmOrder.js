@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ConfirmOrder.css";
 import { firebaseUrl } from "../../dev";
-
+import { CartContext } from "../../store/CartProvider";
 const ConfirmOrder = (props) => {
+  const cartCtx = useContext(CartContext);
   const formChange = (e) => {
     e.target.classList.remove("input_err");
   };
@@ -46,8 +47,9 @@ const ConfirmOrder = (props) => {
 
     let json = await res.json();
     props.setStatus("CompleteOrder");
-    body.id = json.name.split("-")[1];
+    body.id = json.name;
     props.orderDetail(body);
+    cartCtx.clearItem();
   };
 
   return (
