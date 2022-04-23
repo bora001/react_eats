@@ -5,6 +5,7 @@ const initialState = {
   totalAmount: 0,
   loginStatus: false,
   modalStatus: "",
+  userUid: "",
 };
 
 const cartSlice = createSlice({
@@ -40,8 +41,10 @@ const cartSlice = createSlice({
     clearItem(state) {
       state = initialState;
     },
-    login(state) {},
-    logout(state) {},
+    userLogin(state, action) {
+      state.userUid = action.payload;
+    },
+    userLogout(state) {},
     currentModal(state, action) {
       state.modalStatus = action.payload;
     },

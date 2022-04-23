@@ -28,7 +28,7 @@ const Header = (props) => {
         <Link to="/">
           <h1>React Eats</h1>
         </Link>
-        {cartInfo.loginStatus ? (
+        {cartInfo.userUid ? (
           <div className="right_box">
             <button
               className="btn_myorder"
@@ -38,7 +38,6 @@ const Header = (props) => {
               My Order
             </button>
             <button className={styleClass} value="true" onClick={setModal}>
-              {/* <button className={styleClass} value="true" onClick={props.modal}> */}
               Cart <span>{cartInfo.items.length}</span>
             </button>
             <button>Logout</button>
