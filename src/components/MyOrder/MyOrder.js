@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { firebaseUrl } from "../../dev";
+import { firebaseKey } from "../../dev";
 import OrderDraft from "../Cart/OrderDraft";
 import "./MyOrder.css";
 
@@ -11,7 +11,7 @@ const MyOrder = () => {
   const submitE = async (e) => {
     e.preventDefault();
     const key = orderNumber.current.value;
-    const res = await fetch(firebaseUrl + "Orders.json", {
+    const res = await fetch(firebaseKey.firebaseUrl + "Orders.json", {
       method: "GET",
     });
     const data = await res.json();

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import MenuItem from "./MenuItem";
 import "./MenuList.css";
-import { firebaseUrl } from "../../dev";
+import { firebaseKey } from "../../dev";
 
 const MenuList = () => {
   const [menuData, setMenuData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(firebaseUrl + `Meals.json`);
+      const res = await fetch(firebaseKey.firebaseUrl + `Meals.json`);
       const data = await res.json();
       setMenuData(Object.values(data));
     };

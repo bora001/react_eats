@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   items: [],
   totalAmount: 0,
+  loginStatus: false,
+  modalStatus: "",
 };
 
 const cartSlice = createSlice({
@@ -37,6 +39,11 @@ const cartSlice = createSlice({
     },
     clearItem(state) {
       state = initialState;
+    },
+    login(state) {},
+    logout(state) {},
+    currentModal(state, action) {
+      state.modalStatus = action.payload;
     },
   },
 });

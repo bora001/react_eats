@@ -1,6 +1,6 @@
 import React from "react";
 import "./ConfirmOrder.css";
-import { firebaseUrl } from "../../dev";
+import { firebaseKey } from "../../dev";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
 const ConfirmOrder = (props) => {
@@ -40,7 +40,7 @@ const ConfirmOrder = (props) => {
       time: `${date.toLocaleDateString()} ${date.toTimeString().split(" ")[0]}`,
     };
 
-    const res = await fetch(firebaseUrl + `Orders.json`, {
+    const res = await fetch(firebaseKey.firebaseUrl + `Orders.json`, {
       method: "POST",
       body: JSON.stringify(body),
     });
@@ -91,7 +91,10 @@ const ConfirmOrder = (props) => {
         <p>$ {props.ctx.totalAmount}</p>
       </div>
       <div className="btn_box">
-        <button className="btn_close" onClick={props.modal}>
+        <button
+          className="btn_close"
+          onClick={() => dispatch(cartAction.currentModal(""))}
+        >
           Close
         </button>
         <button onClick={inputValidCheck}>Confirm</button>

@@ -1,18 +1,12 @@
 import React from "react";
-import OrderDraft from "./OrderDraft";
-import "./CompleteOrder.css";
+import Modal from "./Modal";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
-const CompleteOrder = (props) => {
+const LoginPage = () => {
   const dispatch = useDispatch();
   return (
-    <div>
-      <div className="txt_box">
-        <h3>Thank you for your order!</h3>
-        <p>your order number is</p>
-        <span>{props.orderInfo.id} </span>
-      </div>
-      <OrderDraft orderInfo={props.orderInfo} />
+    <Modal>
+      LoginPage
       <div className="btn_box">
         <button
           className="btn_close"
@@ -21,8 +15,8 @@ const CompleteOrder = (props) => {
           Close
         </button>
       </div>
-    </div>
+    </Modal>
   );
 };
 
-export default CompleteOrder;
+export default LoginPage;

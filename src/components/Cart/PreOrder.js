@@ -40,7 +40,10 @@ const PreOrder = (props) => {
       )}
 
       <div className="btn_box">
-        <button className="btn_close" onClick={props.modal}>
+        <button
+          className="btn_close"
+          onClick={() => dispatch(cartAction.currentModal(""))}
+        >
           Close
         </button>
         {props.ctx.items.length > 0 && (

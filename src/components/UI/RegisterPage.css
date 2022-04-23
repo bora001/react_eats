@@ -1,0 +1,16 @@
+.register_form .input_box {
+  display: flex;
+  align-items: center;
+}
+.register_form .input_box label {
+  flex: 1;
+  padding-right: 20px;
+  margin: 10px 0;
+}
+.register_form .input_box input {
+  height: 25px;
+}
+
+.register_form .btn_box {
+  margin-top: 20px;
+}
