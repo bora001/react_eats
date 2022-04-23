@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
 const PreOrder = (props) => {
   const dispatch = useDispatch();
-  console.log(props);
 
   return (
     <div>

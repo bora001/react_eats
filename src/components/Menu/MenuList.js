@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MenuItem from "./MenuItem";
-import "./MenuList.css";
 import { firebaseKey } from "../../dev";
+import "./MenuList.css";
 
 const MenuList = () => {
   const [menuData, setMenuData] = useState([]);

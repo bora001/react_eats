@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import CartPage from "./components/Cart/CartPage";
 import LoginPage from "./components/UI/LoginPage";
 import RegisterPage from "./components/UI/RegisterPage";
 import Header from "./components/Layout/Header";
 import MenuList from "./components/Menu/MenuList";
 import MyOrder from "./components/MyOrder/MyOrder";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 const App = () => {
-  // const [modalStatus, setModalStatus] = useState(false);
-  const [checkOrder, setCheckOrder] = useState(false);
   const cartInfo = useSelector((state) => state.cart);
-  // const modalBtn = (e) => {
-  //   setModalStatus(e.target.value);
-  // };
-  const myOrderBtn = (e) => {
-    setCheckOrder(e.target.value);
-  };
+
   return (
     <BrowserRouter>
       {cartInfo.modalStatus === "Login" && <LoginPage />}
@@ -24,12 +18,12 @@ const App = () => {
       {cartInfo.modalStatus === "Cart" && <CartPage />}
       {cartInfo.cartStatus && <CartPage />}
 
-      {/* {modalStatus && <CartPage modal={modalBtn} />} */}
-      {/* <Header modal={modalBtn} myorder={myOrderBtn} /> */}
-      <Header myorder={myOrderBtn} />
+      <Header />
       <div className="main_box">
-        {!checkOrder && <MenuList />}
-        {checkOrder && <MyOrder />}
+        <Routes>
+          <Route path="/" element={<MenuList />} exact />
+          <Route path="/myorder" element={<MyOrder />} exact />
+        </Routes>
       </div>
     </BrowserRouter>
   );

@@ -1,46 +1,38 @@
-import React, { useState, useRef } from "react";
-import { firebaseKey } from "../../dev";
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, child, get } from "firebase/database";
+import { useSelector } from "react-redux";
 import OrderDraft from "../Cart/OrderDraft";
 import "./MyOrder.css";
 
 const MyOrder = () => {
-  const [orderDesc, setOrderDesc] = useState();
-  const [noResult, setNoResult] = useState();
-  const orderNumber = useRef();
+  const [orderList, setOrderList] = useState([]);
+  const cartInfo = useSelector((state) => state.cart);
+  useEffect(() => {
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, "Order/" + cartInfo.userUid))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setOrderList(Object.values(snapshot.val()));
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
-  const submitE = async (e) => {
-    e.preventDefault();
-    const key = orderNumber.current.value;
-    const res = await fetch(firebaseKey.firebaseUrl + "Orders.json", {
-      method: "GET",
-    });
-    const data = await res.json();
-    orderNumber.current.value = "";
-    setOrderDesc(data[key]);
-    setNoResult(!data[key]);
-  };
   return (
     <div className="myorder">
       <div className="myorder_inner">
-        <form onSubmit={submitE}>
-          <h2>My Order</h2>
-          <div className="input_box">
-            <input
-              type="text"
-              ref={orderNumber}
-              placeholder="Enter your order number"
-              required
+        {orderList.length > 0 &&
+          orderList.map((item) => (
+            <OrderDraft
+              orderInfo={item}
+              key={Math.random().toString(36).slice(2)}
             />
-            <button>Check</button>
-          </div>
-        </form>
-        {orderDesc && <OrderDraft orderInfo={orderDesc} />}
-        {noResult && (
-          <div className="no_result">
-            <h4> No results Found</h4>
-            <span>Test order number : -N-v1SuhmUioxoBq48az</span>
-          </div>
-        )}
+          ))}
+        {orderList.length < 1 && <div className="no_order">No order found</div>}
       </div>
     </div>
   );

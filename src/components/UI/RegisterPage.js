@@ -5,6 +5,7 @@ import { cartAction } from "../../store/cart-slice";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import "./RegisterPage.css";
+
 const RegisterPage = () => {
   const ref = useRef();
   const [registerInfo, setRegisterInfo] = useState({
@@ -20,7 +21,6 @@ const RegisterPage = () => {
   const registerUser = (e) => {
     e.preventDefault();
     if (registerInfo.password == registerInfo.password_check) {
-      console.log("same");
       saveOnFirebase();
     } else {
       alert("Incorrect Password");

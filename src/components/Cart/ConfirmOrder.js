@@ -1,10 +1,12 @@
 import React from "react";
-import "./ConfirmOrder.css";
-import { firebaseKey } from "../../dev";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
+import { getDatabase, ref, push } from "firebase/database";
+import "./ConfirmOrder.css";
+
 const ConfirmOrder = (props) => {
   const dispatch = useDispatch();
+  const cartInfo = useSelector((state) => state.cart);
   const formChange = (e) => {
     e.target.classList.remove("input_err");
   };
@@ -32,24 +34,22 @@ const ConfirmOrder = (props) => {
 
   const postData = async (data) => {
     const date = new Date();
-
-    let body = {
+    const n = Math.random().toString(36).slice(2);
+    const body = {
       ...data,
       item: props.items,
       totalAmount: props.totalAmount,
       time: `${date.toLocaleDateString()} ${date.toTimeString().split(" ")[0]}`,
     };
 
-    const res = await fetch(firebaseKey.firebaseUrl + `Orders.json`, {
-      method: "POST",
-      body: JSON.stringify(body),
-    });
+    const db = getDatabase();
+    push(ref(db, "Order/" + cartInfo.userUid), body).then((data) => {
+      body.id = data._path.pieces_[2];
 
-    let json = await res.json();
-    dispatch(cartAction.currentCart("CompleteOrder"));
-    body.id = json.name;
-    props.orderDetail(body);
-    dispatch(cartAction.clearItem());
+      dispatch(cartAction.currentCart("CompleteOrder"));
+      props.orderDetail(body);
+      dispatch(cartAction.clearItem());
+    });
   };
 
   return (

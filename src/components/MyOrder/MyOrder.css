@@ -4,71 +4,73 @@
   align-items: center;
   margin: 0 auto;
 }
-
-.myorder .myorder_inner {
-  padding: 40px;
+.myorder .myorder_inner .no_order {
   border-radius: 20px;
+  padding: 20px 40px;
+  margin: 20px;
   background-color: rgb(204, 179, 179);
 }
-.myorder form {
-  padding: 10px 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.myorder .order_draft {
+  border-radius: 20px;
+  padding: 10px 40px;
+  margin: 20px;
+  background-color: rgb(204, 179, 179);
 }
-.myorder form h2 {
-  font-size: 26px;
-}
-.myorder form .input_box input {
-  padding: 8px;
-  text-align: center;
-  border: none;
-  font-size: 16px;
-}
-
-.myorder form .input_box button {
-  border-radius: 0;
-}
-
-.myorder .no_result {
-  text-align: center;
-}
-
-.myorder .no_result h4 {
+.myorder .order_draft .order_item h4,
+.myorder .order_draft .order_info h4,
+.myorder .order_draft .total_box h4 {
   font-size: 18px;
 }
-.myorder .no_result p {
+
+.myorder .order_draft .order_info p,
+.myorder .order_draft .total_box p {
+  font-size: 17px;
+}
+.myorder .order_draft .desc_box {
+  display: flex;
+}
+.myorder .order_draft .order_item {
+  width: 300px;
+  padding-left: 50px;
+}
+.myorder .order_draft .order_item .item_desc {
+  border-bottom: 1px solid rgb(247, 215, 215);
+}
+.myorder .order_draft .order_item p {
   font-size: 16px;
-  line-height: 0;
-}
-.myorder .no_result span {
-  font-size: 15px;
 }
 
+.myorder .order_draft .total_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 @media screen and (max-width: 768px) {
-  .myorder .myorder_inner {
-    padding: 5.2083vw;
-    border-radius: 2.6042vw;
-  }
-  .myorder form {
-    padding: 1.3021vw 0 3.9063vw;
-  }
-  .myorder form h2 {
-    font-size: 3.3854vw;
-  }
-  .myorder form .input_box input {
-    padding: 1.0417vw;
-    font-size: 2.0833vw;
-    border-radius: 0;
-  }
-
-  .myorder .no_result h4 {
+  .myorder .order_draft .order_item h4,
+  .myorder .order_draft .order_info h4,
+  .myorder .order_draft .total_box h4 {
     font-size: 2.3438vw;
   }
-  .myorder .no_result p {
+
+  .myorder .order_draft .order_info p,
+  .myorder .order_draft .total_box p {
+    font-size: 2.2135vw;
+  }
+
+  .myorder .order_draft .order_item {
+    width: 39.0625vw;
+    padding-left: 6.5104vw;
+  }
+  .myorder .order_draft .order_item .item_desc {
+    border-bottom: 0.1302vw solid rgb(247, 215, 215);
+  }
+  .myorder .order_draft .order_item p {
     font-size: 2.0833vw;
   }
-  .myorder .no_result span {
-    font-size: 1.9531vw;
+
+  .myorder .order_draft .total_box {
+    align-items: center;
+    margin-bottom: 2.6042vw;
   }
 }

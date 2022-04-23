@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { cartAction } from "../../store/cart-slice";
 import { getAuth, signOut } from "firebase/auth";
-const Header = (props) => {
+import "./Header.css";
+
+const Header = () => {
   const dispatch = useDispatch();
   const cartInfo = useSelector((state) => state.cart);
   const [styleClass, setStyleClass] = useState("cart_btn");
@@ -23,7 +24,6 @@ const Header = (props) => {
     dispatch(cartAction.currentModal(e.currentTarget.value));
   };
   const setCart = (e) => {
-    console.log(e.currentTarget.value);
     dispatch(cartAction.currentCart(e.currentTarget.value));
   };
 
@@ -42,13 +42,9 @@ const Header = (props) => {
         </Link>
         {cartInfo.userUid ? (
           <div className="right_box">
-            <button
-              className="btn_myorder"
-              value="true"
-              onClick={props.myorder}
-            >
-              My Order
-            </button>
+            <Link to="/myorder">
+              <button className="btn_myorder">My Order</button>
+            </Link>
             <button className={styleClass} value="PreOrder" onClick={setCart}>
               Cart <span>{cartInfo.items.length}</span>
             </button>

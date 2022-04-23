@@ -1,8 +1,9 @@
 import React from "react";
 import OrderDraft from "./OrderDraft";
-import "./CompleteOrder.css";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
+import "./CompleteOrder.css";
+
 const CompleteOrder = (props) => {
   const dispatch = useDispatch();
   return (
@@ -10,7 +11,7 @@ const CompleteOrder = (props) => {
       <div className="txt_box">
         <h3>Thank you for your order!</h3>
         <p>your order number is</p>
-        <span>{props.orderInfo.id} </span>
+        <span>{props.orderInfo.id}</span>
       </div>
       <OrderDraft orderInfo={props.orderInfo} />
       <div className="btn_box">
