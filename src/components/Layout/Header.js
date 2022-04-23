@@ -3,11 +3,12 @@ import "./Header.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { cartAction } from "../../store/cart-slice";
-
+import { getAuth, signOut } from "firebase/auth";
 const Header = (props) => {
   const dispatch = useDispatch();
   const cartInfo = useSelector((state) => state.cart);
   const [styleClass, setStyleClass] = useState("cart_btn");
+  const auth = getAuth();
   useEffect(() => {
     setStyleClass("cart_btn");
 
@@ -20,6 +21,13 @@ const Header = (props) => {
 
   const setModal = (e) => {
     dispatch(cartAction.currentModal(e.target.innerText));
+  };
+
+  const userLogout = () => {
+    dispatch(cartAction.userLogout());
+    signOut(auth).catch((err) => {
+      console.log(err);
+    });
   };
 
   return (
@@ -40,7 +48,7 @@ const Header = (props) => {
             <button className={styleClass} value="true" onClick={setModal}>
               Cart <span>{cartInfo.items.length}</span>
             </button>
-            <button>Logout</button>
+            <button onClick={userLogout}>Logout</button>
           </div>
         ) : (
           <div className="right_box">
