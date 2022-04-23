@@ -20,7 +20,11 @@ const Header = (props) => {
   }, [cartInfo.totalAmount]);
 
   const setModal = (e) => {
-    dispatch(cartAction.currentModal(e.target.innerText));
+    dispatch(cartAction.currentModal(e.currentTarget.value));
+  };
+  const setCart = (e) => {
+    console.log(e.currentTarget.value);
+    dispatch(cartAction.currentCart(e.currentTarget.value));
   };
 
   const userLogout = () => {
@@ -45,15 +49,19 @@ const Header = (props) => {
             >
               My Order
             </button>
-            <button className={styleClass} value="true" onClick={setModal}>
+            <button className={styleClass} value="PreOrder" onClick={setCart}>
               Cart <span>{cartInfo.items.length}</span>
             </button>
             <button onClick={userLogout}>Logout</button>
           </div>
         ) : (
           <div className="right_box">
-            <button onClick={setModal}>Login</button>
-            <button onClick={setModal}>Register</button>
+            <button onClick={setModal} value="Login">
+              Login
+            </button>
+            <button onClick={setModal} value="Register">
+              Register
+            </button>
           </div>
         )}
       </header>

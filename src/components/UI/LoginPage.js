@@ -49,7 +49,12 @@ const LoginPage = () => {
         </div>
         <div className="input_box">
           <label htmlFor="">password</label>
-          <input type="password" name="password" onChange={getData} />
+          <input
+            type="password"
+            name="password"
+            onChange={getData}
+            autoComplete="off"
+          />
         </div>
 
         <div className="btn_box">

@@ -4,6 +4,7 @@ const initialState = {
   items: [],
   totalAmount: 0,
   modalStatus: "",
+  cartStatus: "",
   userUid: "",
 };
 
@@ -48,6 +49,9 @@ const cartSlice = createSlice({
     },
     currentModal(state, action) {
       state.modalStatus = action.payload;
+    },
+    currentCart(state, action) {
+      state.cartStatus = action.payload;
     },
   },
 });

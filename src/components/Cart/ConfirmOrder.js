@@ -35,8 +35,8 @@ const ConfirmOrder = (props) => {
 
     let body = {
       ...data,
-      item: props.ctx.items,
-      totalAmount: props.ctx.totalAmount,
+      item: props.items,
+      totalAmount: props.totalAmount,
       time: `${date.toLocaleDateString()} ${date.toTimeString().split(" ")[0]}`,
     };
 
@@ -46,7 +46,7 @@ const ConfirmOrder = (props) => {
     });
 
     let json = await res.json();
-    props.setStatus("CompleteOrder");
+    dispatch(cartAction.currentCart("CompleteOrder"));
     body.id = json.name;
     props.orderDetail(body);
     dispatch(cartAction.clearItem());
@@ -55,7 +55,7 @@ const ConfirmOrder = (props) => {
   return (
     <div className="cart_form">
       <h2>Order Information</h2>
-      {props.ctx.items.map((item) => (
+      {props.items.map((item) => (
         <div className="order_item" key={item.id}>
           <p>
             {item.name} <span>x {item.qty}</span>
@@ -88,12 +88,12 @@ const ConfirmOrder = (props) => {
       </form>
       <div className="total_box">
         <h3>Total Amount</h3>
-        <p>$ {props.ctx.totalAmount}</p>
+        <p>$ {props.totalAmount}</p>
       </div>
       <div className="btn_box">
         <button
           className="btn_close"
-          onClick={() => dispatch(cartAction.currentModal(""))}
+          onClick={() => dispatch(cartAction.currentCart(""))}
         >
           Close
         </button>

@@ -16,7 +16,7 @@ const CompleteOrder = (props) => {
       <div className="btn_box">
         <button
           className="btn_close"
-          onClick={() => dispatch(cartAction.currentModal(""))}
+          onClick={() => dispatch(cartAction.currentCart(""))}
         >
           Close
         </button>

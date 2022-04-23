@@ -22,6 +22,8 @@ const App = () => {
       {cartInfo.modalStatus === "Login" && <LoginPage />}
       {cartInfo.modalStatus === "Register" && <RegisterPage />}
       {cartInfo.modalStatus === "Cart" && <CartPage />}
+      {cartInfo.cartStatus && <CartPage />}
+
       {/* {modalStatus && <CartPage modal={modalBtn} />} */}
       {/* <Header modal={modalBtn} myorder={myOrderBtn} /> */}
       <Header myorder={myOrderBtn} />

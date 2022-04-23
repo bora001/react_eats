@@ -4,15 +4,13 @@ import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
 const PreOrder = (props) => {
   const dispatch = useDispatch();
-  const orderProcess = () => {
-    props.setStatus("ConfirmOrder");
-  };
+  console.log(props);
 
   return (
     <div>
       <div className="cart_box">
         <div className="cart_list">
-          {props.ctx.items.map((item) => (
+          {props.items.map((item) => (
             <div key={Math.random() * 9} className="cart_item">
               <div className="cart_item_desc">
                 <h3>{item.name}</h3>
@@ -31,9 +29,9 @@ const PreOrder = (props) => {
           ))}
         </div>
       </div>
-      {props.ctx.items.length > 0 ? (
+      {props.items.length > 0 ? (
         <div className="total_box">
-          <h3>Total Amount</h3> <p>$ {props.ctx.totalAmount}</p>
+          <h3>Total Amount</h3> <p>$ {props.totalAmount}</p>
         </div>
       ) : (
         <p className="cart_empty">Your cart is Empty</p>
@@ -42,12 +40,16 @@ const PreOrder = (props) => {
       <div className="btn_box">
         <button
           className="btn_close"
-          onClick={() => dispatch(cartAction.currentModal(""))}
+          onClick={() => dispatch(cartAction.currentCart(""))}
         >
           Close
         </button>
-        {props.ctx.items.length > 0 && (
-          <button onClick={orderProcess}>Order</button>
+        {props.items.length > 0 && (
+          <button
+            onClick={() => dispatch(cartAction.currentCart("ConfirmOrder"))}
+          >
+            Order
+          </button>
         )}
       </div>
     </div>

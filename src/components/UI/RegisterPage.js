@@ -53,11 +53,21 @@ const RegisterPage = () => {
         </div>
         <div className="input_box">
           <label htmlFor="">password</label>
-          <input type="password" name="password" onChange={getData} />
+          <input
+            type="password"
+            name="password"
+            onChange={getData}
+            autoComplete="off"
+          />
         </div>
         <div className="input_box">
           <label htmlFor="">Password check</label>
-          <input type="password" name="password_check" onChange={getData} />
+          <input
+            type="password"
+            name="password_check"
+            onChange={getData}
+            autoComplete="off"
+          />
         </div>
         <div className="btn_box">
           <button
