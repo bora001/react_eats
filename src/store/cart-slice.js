@@ -39,7 +39,8 @@ const cartSlice = createSlice({
       }
     },
     clearItem(state) {
-      state = initialState;
+      state.items = initialState.items;
+      state.totalAmount = initialState.totalAmount;
     },
     userLogin(state, action) {
       state.userUid = action.payload;
