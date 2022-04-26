@@ -4,73 +4,40 @@
   align-items: center;
   margin: 0 auto;
 }
+
 .myorder .myorder_inner .no_order {
   border-radius: 20px;
   padding: 20px 40px;
   margin: 20px;
   background-color: rgb(204, 179, 179);
 }
+
+.myorder .myorder_inner .orderdraft_box {
+  position: relative;
+}
+
+.myorder .myorder_inner .orderdraft_box .btn_del {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 14px;
+  background-color: rgb(182, 145, 145);
+}
+.myorder .myorder_inner .orderdraft_box .btn_del:hover {
+  background-color: brown;
+}
 .myorder .order_draft {
+  display: flex;
+  flex-direction: column;
   border-radius: 20px;
   padding: 10px 40px;
   margin: 20px;
   background-color: rgb(204, 179, 179);
 }
-.myorder .order_draft .order_item h4,
-.myorder .order_draft .order_info h4,
-.myorder .order_draft .total_box h4 {
-  font-size: 18px;
-}
 
-.myorder .order_draft .order_info p,
-.myorder .order_draft .total_box p {
-  font-size: 17px;
-}
-.myorder .order_draft .desc_box {
-  display: flex;
-}
-.myorder .order_draft .order_item {
-  width: 300px;
-  padding-left: 50px;
-}
-.myorder .order_draft .order_item .item_desc {
-  border-bottom: 1px solid rgb(247, 215, 215);
-}
-.myorder .order_draft .order_item p {
-  font-size: 16px;
-}
-
-.myorder .order_draft .total_box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
 @media screen and (max-width: 768px) {
-  .myorder .order_draft .order_item h4,
-  .myorder .order_draft .order_info h4,
-  .myorder .order_draft .total_box h4 {
-    font-size: 2.3438vw;
-  }
-
-  .myorder .order_draft .order_info p,
-  .myorder .order_draft .total_box p {
-    font-size: 2.2135vw;
-  }
-
-  .myorder .order_draft .order_item {
-    width: 39.0625vw;
-    padding-left: 6.5104vw;
-  }
-  .myorder .order_draft .order_item .item_desc {
-    border-bottom: 0.1302vw solid rgb(247, 215, 215);
-  }
-  .myorder .order_draft .order_item p {
-    font-size: 2.0833vw;
-  }
-
-  .myorder .order_draft .total_box {
-    align-items: center;
-    margin-bottom: 2.6042vw;
+  .myorder .myorder_inner .orderdraft_box .btn_del {
+    top: 2vw;
+    font-size: 1.8vw;
   }
 }

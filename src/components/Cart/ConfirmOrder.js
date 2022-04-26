@@ -36,6 +36,7 @@ const ConfirmOrder = (props) => {
     const date = new Date();
     const n = Math.random().toString(36).slice(2);
     const body = {
+      _id: n + n,
       ...data,
       item: props.items,
       totalAmount: props.totalAmount,

@@ -27,6 +27,7 @@ const OrderDraft = (props) => {
             })}
         </div>
       </div>
+
       <div className="total_box">
         <h4>Total Amount</h4>
         <p>$ {props.orderInfo.totalAmount}</p>

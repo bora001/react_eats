@@ -26,8 +26,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
+
 @media screen and (max-width: 768px) {
   .order_draft .order_item h4,
   .order_draft .order_info h4,
@@ -53,6 +53,5 @@
 
   .order_draft .total_box {
     align-items: center;
-    margin-bottom: 2.6042vw;
   }
 }
