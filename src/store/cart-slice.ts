@@ -1,6 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export type cartItemType = {
+  desc: string;
+  id: string;
+  name: string;
+  price: number;
+  qty: number;
+};
+
+export type cartType = {
+  items: cartItemType[];
+  totalAmount: number;
+  modalStatus: string;
+  cartStatus: string;
+  userUid: string;
+};
+
+const initialState: cartType = {
   items: [],
   totalAmount: 0,
   modalStatus: "",
