@@ -12,6 +12,7 @@ const RegisterPage = () => {
   const [registerInfo, setRegisterInfo] = useState({
     email: "",
     password: "",
+    password_check: "",
   });
   const dispatch = useDispatch();
 
@@ -22,12 +23,12 @@ const RegisterPage = () => {
   };
   const registerUser = (e: React.FormEvent) => {
     e.preventDefault();
-    // if (registerInfo.password == registerInfo.password_check) {
-    //   saveOnFirebase();
-    // } else {
-    //   alert("Incorrect Password");
-    //   ref.current.reset();
-    // }
+    if (registerInfo.password == registerInfo.password_check) {
+      saveOnFirebase();
+    } else {
+      alert("Incorrect Password");
+      ref.current!.reset();
+    }
   };
 
   const saveOnFirebase = async () => {
@@ -41,7 +42,7 @@ const RegisterPage = () => {
         dispatch(cartAction.currentModal(""));
       }
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 

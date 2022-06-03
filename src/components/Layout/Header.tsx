@@ -10,7 +10,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const cartInfo = useAppSelector((state) => state.cart);
   const [styleClass, setStyleClass] = useState("cart_btn");
-  // const auth = getAuth();
+  const auth = getAuth();
   useEffect(() => {
     setStyleClass("cart_btn");
 
@@ -30,9 +30,9 @@ const Header = () => {
 
   const userLogout = () => {
     dispatch(cartAction.userLogout());
-    // signOut(auth).catch((err) => {
-    //   console.log(err);
-    // });
+    signOut(auth).catch((err) => {
+      console.log(err);
+    });
   };
 
   return (

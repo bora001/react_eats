@@ -8,7 +8,7 @@ import { auth } from "../../firebase-config";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  // const authInfo = getAuth();
+  const authInfo = getAuth();
   const dispatch = useAppDispatch();
   const ref = useRef<HTMLFormElement>(null);
   const [loginInfo, setLoginInfo] = useState({
@@ -22,22 +22,22 @@ const LoginPage = () => {
     setLoginInfo({ ...loginInfo, [name]: value });
   };
   const loginUser = async (e: React.FormEvent) => {
-    //   e.preventDefault();
-    // try {
-    //   const user = await signInWithEmailAndPassword(
-    //     auth,
-    //     loginInfo.email,
-    //     loginInfo.password
-    //   );
-    //   if (user) {
-    //     const userUid = authInfo.currentUser.uid;
-    //     dispatch(cartAction.currentModal(""));
-    //     dispatch(cartAction.userLogin(userUid));
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    // }
-    // ref.current.reset();
+    e.preventDefault();
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginInfo.email,
+        loginInfo.password
+      );
+      if (user) {
+        const userUid = authInfo.currentUser!.uid;
+        dispatch(cartAction.currentModal(""));
+        dispatch(cartAction.userLogin(userUid));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    ref.current!.reset();
   };
 
   return (
