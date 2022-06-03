@@ -1,42 +1,43 @@
 import React, { useState, useRef } from "react";
 import Modal from "./Modal";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../store/hooks";
 import { cartAction } from "../../store/cart-slice";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const authInfo = getAuth();
-  const dispatch = useDispatch();
-  const ref = useRef();
+  // const authInfo = getAuth();
+  const dispatch = useAppDispatch();
+  const ref = useRef<HTMLFormElement>(null);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
 
-  const getData = (e) => {
-    const { name, value } = e.target;
+  const getData = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    const { name, value } = target;
     setLoginInfo({ ...loginInfo, [name]: value });
   };
-  const loginUser = async (e) => {
-    e.preventDefault();
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginInfo.email,
-        loginInfo.password
-      );
-
-      if (user) {
-        const userUid = authInfo.currentUser.uid;
-        dispatch(cartAction.currentModal(""));
-        dispatch(cartAction.userLogin(userUid));
-      }
-    } catch (err) {
-      console.log(err);
-    }
-    ref.current.reset();
+  const loginUser = async (e: React.FormEvent) => {
+    //   e.preventDefault();
+    // try {
+    //   const user = await signInWithEmailAndPassword(
+    //     auth,
+    //     loginInfo.email,
+    //     loginInfo.password
+    //   );
+    //   if (user) {
+    //     const userUid = authInfo.currentUser.uid;
+    //     dispatch(cartAction.currentModal(""));
+    //     dispatch(cartAction.userLogin(userUid));
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    // ref.current.reset();
   };
 
   return (
