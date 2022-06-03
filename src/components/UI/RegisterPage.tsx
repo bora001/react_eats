@@ -7,25 +7,27 @@ import { auth } from "../../firebase-config";
 import "./RegisterPage.css";
 
 const RegisterPage = () => {
-  const ref = useRef();
+  const ref = useRef<HTMLFormElement>(null);
+
   const [registerInfo, setRegisterInfo] = useState({
     email: "",
     password: "",
   });
   const dispatch = useDispatch();
 
-  const getData = (e) => {
-    const { name, value } = e.target;
+  const getData = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    const { name, value } = target;
     setRegisterInfo({ ...registerInfo, [name]: value });
   };
-  const registerUser = (e) => {
+  const registerUser = (e: React.FormEvent) => {
     e.preventDefault();
-    if (registerInfo.password == registerInfo.password_check) {
-      saveOnFirebase();
-    } else {
-      alert("Incorrect Password");
-      ref.current.reset();
-    }
+    // if (registerInfo.password == registerInfo.password_check) {
+    //   saveOnFirebase();
+    // } else {
+    //   alert("Incorrect Password");
+    //   ref.current.reset();
+    // }
   };
 
   const saveOnFirebase = async () => {
