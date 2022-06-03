@@ -3,10 +3,11 @@ import Modal from "../UI/Modal";
 import PreOrder from "./PreOrder";
 import ConfirmOrder from "./ConfirmOrder";
 import CompleteOrder from "./CompleteOrder";
-import { useSelector } from "react-redux";
-const CartPage = (props) => {
+import { useAppSelector } from "../../store/hooks";
+
+const CartPage = () => {
   const [orderData, setOrderData] = useState({});
-  const cartInfo = useSelector((state) => state.cart);
+  const cartInfo = useAppSelector((state) => state.cart);
 
   return (
     <Modal>
