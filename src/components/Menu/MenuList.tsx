@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MenuItem from "./MenuItem";
 import { firebaseKey } from "../../dev";
+import { cartItemType } from "../../store/cart-slice";
 import "./MenuList.css";
 
 const MenuList = () => {
@@ -17,7 +18,7 @@ const MenuList = () => {
   }, []);
   return (
     <div className="menu_list">
-      {menuData.map((data) => (
+      {menuData.map((data: cartItemType) => (
         <MenuItem data={data} key={data.id} />
       ))}
     </div>
