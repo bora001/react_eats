@@ -9,11 +9,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const cartInfo = useSelector((state) => state.cart);
+  // const cartInfo = useSelector((state) => state.cart);
 
   return (
     <BrowserRouter>
-      {cartInfo.modalStatus === "Login" && <LoginPage />}
+      <div>test</div>
+      {/* {cartInfo.modalStatus === "Login" && <LoginPage />}
       {cartInfo.modalStatus === "Register" && <RegisterPage />}
       {cartInfo.modalStatus === "Cart" && <CartPage />}
       {cartInfo.cartStatus && <CartPage />}
@@ -24,7 +25,7 @@ const App = () => {
           <Route path="/" element={<MenuList />} exact />
           <Route path="/myorder" element={<MyOrder />} exact />
         </Routes>
-      </div>
+      </div> */}
     </BrowserRouter>
   );
 };
