@@ -2,14 +2,15 @@ import React from "react";
 import "./PreOrder.css";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
-const PreOrder = (props) => {
+import { cartType, cartItemType } from "../../store/cart-slice";
+const PreOrder = (props: cartType) => {
   const dispatch = useDispatch();
 
   return (
     <div>
       <div className="cart_box">
         <div className="cart_list">
-          {props.items.map((item) => (
+          {props.items.map((item: cartItemType) => (
             <div key={Math.random() * 9} className="cart_item">
               <div className="cart_item_desc">
                 <h3>{item.name}</h3>
