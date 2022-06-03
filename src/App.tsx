@@ -6,26 +6,28 @@ import Header from "./components/Layout/Header";
 import MenuList from "./components/Menu/MenuList";
 import MyOrder from "./components/MyOrder/MyOrder";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useAppSelector } from "./store/hooks";
 
 const App = () => {
+  const cartInfo = useAppSelector((state) => state.cart);
   // const cartInfo = useSelector((state) => state.cart);
 
   return (
     <BrowserRouter>
-      <div>test</div>
-      {/* {cartInfo.modalStatus === "Login" && <LoginPage />}
+      <div>
+        {/* {cartInfo.modalStatus === "Login" && <LoginPage />}
       {cartInfo.modalStatus === "Register" && <RegisterPage />}
       {cartInfo.modalStatus === "Cart" && <CartPage />}
-      {cartInfo.cartStatus && <CartPage />}
-
-      <Header />
-      <div className="main_box">
+      {cartInfo.cartStatus && <CartPage />} */}
+        <Header />
+        {/* <div className="main_box">
         <Routes>
           <Route path="/" element={<MenuList />} exact />
           <Route path="/myorder" element={<MyOrder />} exact />
         </Routes>
       </div> */}
+      </div>
     </BrowserRouter>
   );
 };

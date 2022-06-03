@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { Link } from "react-router-dom";
 import { cartAction } from "../../store/cart-slice";
 import { getAuth, signOut } from "firebase/auth";
 import "./Header.css";
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const cartInfo = useSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
+  const cartInfo = useAppSelector((state) => state.cart);
   const [styleClass, setStyleClass] = useState("cart_btn");
-  const auth = getAuth();
+  // const auth = getAuth();
   useEffect(() => {
     setStyleClass("cart_btn");
 
@@ -20,18 +21,18 @@ const Header = () => {
     };
   }, [cartInfo.totalAmount]);
 
-  const setModal = (e) => {
+  const setModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch(cartAction.currentModal(e.currentTarget.value));
   };
-  const setCart = (e) => {
+  const setCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch(cartAction.currentCart(e.currentTarget.value));
   };
 
   const userLogout = () => {
     dispatch(cartAction.userLogout());
-    signOut(auth).catch((err) => {
-      console.log(err);
-    });
+    // signOut(auth).catch((err) => {
+    //   console.log(err);
+    // });
   };
 
   return (
