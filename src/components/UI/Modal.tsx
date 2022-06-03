@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./Modal.css";
 
-const modalCtn = document.getElementById("modal");
-const Modal = (props) => {
+const modalCtn = document.getElementById("modal") as HTMLElement;
+const Modal = (props: any) => {
   return (
     <>
       {ReactDOM.createPortal(
