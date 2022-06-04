@@ -1,4 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+export type OrderType = {
+  address: string;
+  contact: number;
+  id: string;
+  item: cartItemType;
+  msg?: string;
+  name: string;
+  time: string;
+  totalAmount: number;
+  _id: string;
+};
 
 export type cartItemType = {
   desc: string;

@@ -1,27 +1,34 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
 import { getDatabase, ref, push } from "firebase/database";
 import "./ConfirmOrder.css";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { cartType } from "../../store/cart-slice";
 
-const ConfirmOrder = (props) => {
-  const dispatch = useDispatch();
-  const cartInfo = useSelector((state) => state.cart);
-  const formChange = (e) => {
+const ConfirmOrder = (props: cartType) => {
+  const dispatch = useAppDispatch();
+  const cartInfo = useAppSelector((state) => state.cart);
+  const formChange = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.target.classList.remove("input_err");
   };
 
-  const inputValidCheck = (e) => {
+  const inputValidCheck = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const inputBox = document.querySelectorAll(".input_box input");
     const inputArr = Array.from(inputBox);
-    let data = {};
+    let data: {
+      [key: string]: string | number;
+    } = {};
 
     inputBox.forEach((input) => {
-      if (input.id !== "msg" && input.value.trim() === "") {
+      const { value, id } = input as HTMLInputElement;
+      if (id !== "msg" && value.trim() === "") {
         input.classList.add("input_err");
       }
-      data[input.id] = input.value;
+      if (id == "contact") {
+        return (data[id] = Number(value));
+      }
+      data[id] = value;
     });
 
     let inputValid = inputArr.some((input) =>
@@ -32,7 +39,7 @@ const ConfirmOrder = (props) => {
     }
   };
 
-  const postData = async (data) => {
+  const postData = async (data: any) => {
     const date = new Date();
     const n = Math.random().toString(36).slice(2);
     const body = {
@@ -42,13 +49,11 @@ const ConfirmOrder = (props) => {
       totalAmount: props.totalAmount,
       time: `${date.toLocaleDateString()} ${date.toTimeString().split(" ")[0]}`,
     };
-
     const db = getDatabase();
-    push(ref(db, "Order/" + cartInfo.userUid), body).then((data) => {
+    push(ref(db, "Order/" + cartInfo.userUid), body).then((data: any) => {
       body.id = data._path.pieces_[2];
-
       dispatch(cartAction.currentCart("CompleteOrder"));
-      props.orderDetail(body);
+      // props.orderDetail(body);
       dispatch(cartAction.clearItem());
     });
   };
@@ -76,7 +81,7 @@ const ConfirmOrder = (props) => {
         <div className="input_box">
           <label htmlFor="contact">Contact</label>
           <input
-            type="tel"
+            type="number"
             placeholder="Contact number"
             id="contact"
             required
