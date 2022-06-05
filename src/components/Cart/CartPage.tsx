@@ -16,7 +16,7 @@ const CartPage = () => {
         <ConfirmOrder orderDetail={setOrderData} />
       )}
       {cartInfo.cartStatus === "CompleteOrder" && (
-        <CompleteOrder {...cartInfo} orderInfo={orderData} />
+        <CompleteOrder orderInfo={orderData} />
       )}
     </Modal>
   );
