@@ -1,11 +1,13 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { cartAction } from "../../store/cart-slice";
 import { getDatabase, ref, push } from "firebase/database";
 import "./ConfirmOrder.css";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { cartType } from "../../store/cart-slice";
+import { OrderType } from "../../store/cart-slice";
 
-const ConfirmOrder = (props: cartType) => {
+const ConfirmOrder = (props: {
+  orderDetail: Dispatch<SetStateAction<OrderType | undefined>>;
+}) => {
   const dispatch = useAppDispatch();
   const cartInfo = useAppSelector((state) => state.cart);
   const formChange = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -45,15 +47,15 @@ const ConfirmOrder = (props: cartType) => {
     const body = {
       _id: n + n,
       ...data,
-      item: props.items,
-      totalAmount: props.totalAmount,
+      item: cartInfo.items,
+      totalAmount: cartInfo.totalAmount,
       time: `${date.toLocaleDateString()} ${date.toTimeString().split(" ")[0]}`,
     };
     const db = getDatabase();
     push(ref(db, "Order/" + cartInfo.userUid), body).then((data: any) => {
       body.id = data._path.pieces_[2];
       dispatch(cartAction.currentCart("CompleteOrder"));
-      // props.orderDetail(body);
+      props.orderDetail(body);
       dispatch(cartAction.clearItem());
     });
   };
@@ -61,7 +63,7 @@ const ConfirmOrder = (props: cartType) => {
   return (
     <div className="cart_form">
       <h2>Order Information</h2>
-      {props.items.map((item) => (
+      {cartInfo.items.map((item) => (
         <div className="order_item" key={item.id}>
           <p>
             {item.name} <span>x {item.qty}</span>
@@ -94,7 +96,7 @@ const ConfirmOrder = (props: cartType) => {
       </form>
       <div className="total_box">
         <h3>Total Amount</h3>
-        <p>$ {props.totalAmount}</p>
+        <p>$ {cartInfo.totalAmount}</p>
       </div>
       <div className="btn_box">
         <button
