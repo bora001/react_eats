@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import OrderDraft from "./OrderDraft";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
@@ -12,7 +12,7 @@ const CompleteOrder = (props: { orderInfo: OrderType | undefined }) => {
       <div className="txt_box">
         <h3>Thank you for your order!</h3>
         <p>your order number is</p>
-        <span>{props.orderInfo?.id}</span>
+        <span>{props.orderInfo!.id}</span>
       </div>
       <OrderDraft orderInfo={props.orderInfo} />
       <div className="btn_box">

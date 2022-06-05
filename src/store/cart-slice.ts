@@ -3,7 +3,7 @@ export type OrderType = {
   address: string;
   contact: number;
   id: string;
-  item: cartItemType;
+  item: cartItemType[];
   msg?: string;
   name: string;
   time: string;
