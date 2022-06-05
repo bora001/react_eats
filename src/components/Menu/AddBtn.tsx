@@ -1,10 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
-
-const AddBtn = (props) => {
-  const dispatch = useDispatch();
-  const cartInfo = useSelector((state) => state.cart);
+import { cartItemType } from "../../store/cart-slice";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+const AddBtn = (props: { data: cartItemType }) => {
+  const dispatch = useAppDispatch();
+  const cartInfo = useAppSelector((state) => state.cart);
   const addItem = () => {
     if (cartInfo.userUid) {
       dispatch(cartAction.addItem(props.data));
