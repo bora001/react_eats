@@ -1,6 +1,7 @@
 import React from "react";
 import "./OrderDraft.css";
 import { OrderType } from "../../store/cart-slice";
+
 const OrderDraft = (props: { orderInfo: OrderType | undefined }) => {
   return (
     <div className="order_draft">

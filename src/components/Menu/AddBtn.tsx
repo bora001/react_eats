@@ -2,6 +2,7 @@ import React from "react";
 import { cartAction } from "../../store/cart-slice";
 import { cartItemType } from "../../store/cart-slice";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
+
 const AddBtn = (props: { data: cartItemType }) => {
   const dispatch = useAppDispatch();
   const cartInfo = useAppSelector((state) => state.cart);

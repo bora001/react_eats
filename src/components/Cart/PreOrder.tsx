@@ -3,6 +3,7 @@ import "./PreOrder.css";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
 import { cartType, cartItemType } from "../../store/cart-slice";
+
 const PreOrder = (props: cartType) => {
   const dispatch = useDispatch();
 

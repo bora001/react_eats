@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { cartAction } from "../../store/cart-slice";
 import { getDatabase, ref, push } from "firebase/database";
-import "./ConfirmOrder.css";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { OrderType } from "../../store/cart-slice";
+import "./ConfirmOrder.css";
 
 const ConfirmOrder = (props: {
   orderDetail: Dispatch<SetStateAction<OrderType | undefined>>;

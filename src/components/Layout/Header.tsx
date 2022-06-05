@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { Link } from "react-router-dom";
 import { cartAction } from "../../store/cart-slice";

@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import Modal from "./Modal";
-// import { useDispatch } from "react-redux";
 import { useAppDispatch } from "../../store/hooks";
 import { cartAction } from "../../store/cart-slice";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getDatabase, ref, child, get, remove } from "firebase/database";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../store/hooks";
 import OrderDraft from "../Cart/OrderDraft";
+import { OrderType } from "../../store/cart-slice";
 import "./MyOrder.css";
 
 const MyOrder = () => {
-  const [orderList, setOrderList] = useState([]);
-  const cartInfo = useSelector((state) => state.cart);
+  const [orderList, setOrderList] = useState<[string, OrderType][]>([]);
+  const cartInfo = useAppSelector((state) => state.cart);
 
   useEffect(() => {
     getData();
@@ -30,11 +31,11 @@ const MyOrder = () => {
       });
   };
 
-  const cancelOrder = (e) => {
+  const cancelOrder = (id: string) => {
     const db = getDatabase();
     const confirm = window.confirm("Are you sure that you delete this order?");
     if (confirm) {
-      remove(ref(db, "Order/" + cartInfo.userUid + "/" + e));
+      remove(ref(db, "Order/" + cartInfo.userUid + "/" + id));
       getData();
     }
   };

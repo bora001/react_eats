@@ -2,8 +2,8 @@ import React from "react";
 import OrderDraft from "./OrderDraft";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../store/cart-slice";
-import "./CompleteOrder.css";
 import { OrderType } from "../../store/cart-slice";
+import "./CompleteOrder.css";
 
 const CompleteOrder = (props: { orderInfo: OrderType | undefined }) => {
   const dispatch = useDispatch();
