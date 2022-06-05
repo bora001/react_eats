@@ -1,7 +1,8 @@
 import React from "react";
 import AddBtn from "./AddBtn";
 import "./MenuItem.css";
-const MenuItem = (props) => {
+import { cartItemType } from "../../store/cart-slice";
+const MenuItem = (props: { data: cartItemType }) => {
   return (
     <div className="menu_box">
       <div className="menu_item">
